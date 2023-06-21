@@ -70,7 +70,7 @@ public class Book {
     public boolean isLoaned() {
         try {
             Dao<Loan, Integer> loanDao = DaoManager.createDao(DatabaseHelper.getConnectionSource(), Loan.class);
-            List<Loan> loans = loanDao.queryBuilder().where().eq("book_id", id).and().isNull("return_date").query();
+            List<Loan> loans = loanDao.queryBuilder().where().eq("book_id", id).and().isNotNull("return_date").query();
             return !loans.isEmpty();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -101,6 +101,12 @@ public class Book {
     public static List<Book> all() throws SQLException {
         Dao<Book, Integer> bookDao = DaoManager.createDao(DatabaseHelper.getConnectionSource(), Book.class);
         return bookDao.queryForAll();
+    }
+
+    public static List<Book> search(String searchTerm) throws SQLException {
+        Dao<Book, Integer> bookDao = DaoManager.createDao(DatabaseHelper.getConnectionSource(), Book.class);
+	searchTerm = "%"+searchTerm+"%";
+	return bookDao.queryBuilder().where().like("title", searchTerm).query();
     }
 
 }
