@@ -96,6 +96,11 @@ public class DashboardView extends javax.swing.JFrame {
         lblTitle.setBounds(60, 60, 100, 40);
 
         btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
         pnlLeft.add(btnRefresh);
         btnRefresh.setBounds(20, 110, 170, 30);
 
@@ -175,6 +180,10 @@ public class DashboardView extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        refreshBooksTable();
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnAddNewActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAddNewActionPerformed
         // make sure no other AddNewBookView is opened
