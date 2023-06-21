@@ -191,7 +191,8 @@ public class DashboardView extends javax.swing.JFrame {
     }// GEN-LAST:event_btnAddNewActionPerformed
 
     private void btnBorrowerActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnBorrowerActionPerformed
-        new RegisterNewBorrowerView().setVisible(true);
+        RegisterNewBorrowerView view = RegisterNewBorrowerView.getInstance();
+        view.setVisible(true);
     }// GEN-LAST:event_btnBorrowerActionPerformed
 
     /**
