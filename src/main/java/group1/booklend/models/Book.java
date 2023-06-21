@@ -103,4 +103,29 @@ public class Book {
         return bookDao.queryForAll();
     }
 
+    public void borrow(Borrower borrower) {
+        Loan loan = new Loan();
+        loan.setBook(this);
+        loan.setBorrower(borrower);
+        loan.setBorrow_date(new java.util.Date());
+
+        try {
+            Loan.create(loan);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public void returnBook() {
+        try {
+            Dao<Loan, Integer> loanDao = DaoManager.createDao(DatabaseHelper.getConnectionSource(), Loan.class);
+            List<Loan> loans = loanDao.queryBuilder().where().eq("book_id", id).and().isNull("return_date").query();
+            Loan loan = loans.get(0);
+            loan.setReturn_date(new java.util.Date());
+            Loan.update(loan);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
 }

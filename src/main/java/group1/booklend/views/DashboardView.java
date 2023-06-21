@@ -10,6 +10,8 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
 import group1.booklend.models.Book;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -18,6 +20,7 @@ import group1.booklend.models.Book;
 public class DashboardView extends javax.swing.JFrame {
 
     private static DashboardView instance = null;
+    private static int selectedBookId = -1;
 
     /**
      * Creates new form DashboardView
@@ -25,6 +28,7 @@ public class DashboardView extends javax.swing.JFrame {
     private DashboardView() {
         initComponents();
         tblBooks.setModel(getBooksTableModel());
+        btnSelect.setEnabled(false);
     }
 
     public void refreshBooksTable() {
@@ -37,7 +41,7 @@ public class DashboardView extends javax.swing.JFrame {
         try {
             books = Book.all();
         } catch (SQLException e) {
-            e.printStackTrace();
+            System.out.println(e.getMessage());
             return new DefaultTableModel(null, columnNames);
         }
 
@@ -54,6 +58,18 @@ public class DashboardView extends javax.swing.JFrame {
         return new DefaultTableModel(data, columnNames);
     }
 
+    private void addTableSelectListener() {
+        tblBooks.getSelectionModel().addListSelectionListener(e -> {
+            int row = tblBooks.getSelectedRow();
+            if (row != -1) {
+                selectedBookId = (int) tblBooks.getValueAt(row, 0);
+                btnSelect.setEnabled(true);
+            } else {
+                btnSelect.setEnabled(false);
+            }
+        });
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -61,7 +77,10 @@ public class DashboardView extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // <editor-fold defaultstate="collapsed" desc="Generated
+    // Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         pnlLeft = new javax.swing.JPanel();
@@ -136,29 +155,38 @@ public class DashboardView extends javax.swing.JFrame {
         btnAddNew.setBounds(320, 10, 90, 23);
 
         btnSelect.setText("Select");
+        btnSelect.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSelectActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnSelect);
         btnSelect.setBounds(240, 10, 72, 23);
 
         tblBooks.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "id", "Title", "Author", "Status"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                new Object[][] {
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null },
+                        { null, null, null, null }
+                },
+                new String[] {
+                        "id", "Title", "Author", "Status"
+                }) {
+            boolean[] canEdit = new boolean[] {
+                    false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                return canEdit[columnIndex];
             }
         });
         tblBooks.getTableHeader().setReorderingAllowed(false);
+        tblBooks.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblBooksMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblBooks);
         if (tblBooks.getColumnModel().getColumnCount() > 0) {
             tblBooks.getColumnModel().getColumn(3).setResizable(false);
@@ -181,9 +209,33 @@ public class DashboardView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+    private void tblBooksMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_tblBooksMouseClicked
+        selectedBookId = (int) tblBooks.getValueAt(tblBooks.getSelectedRow(), 0);
+        if (selectedBookId != -1) {
+            btnSelect.setEnabled(true);
+        } else {
+            btnSelect.setEnabled(false);
+        }
+
+    }// GEN-LAST:event_tblBooksMouseClicked
+
+    private void btnSelectActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSelectActionPerformed
+        Book book = null;
+        try {
+            book = Book.read(selectedBookId);
+        } catch (SQLException ex) {
+            Logger.getLogger(DashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        if (book != null) {
+            BookDetailView view = BookDetailView.getInstance();
+            view.setBook(book);
+            view.setVisible(true);
+        }
+    }// GEN-LAST:event_btnSelectActionPerformed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRefreshActionPerformed
         refreshBooksTable();
-    }//GEN-LAST:event_btnRefreshActionPerformed
+    }// GEN-LAST:event_btnRefreshActionPerformed
 
     private void btnAddNewActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAddNewActionPerformed
         // make sure no other AddNewBookView is opened
@@ -252,6 +304,7 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel pnlLeft;
     private javax.swing.JTable tblBooks;
     private javax.swing.JTextField txtSearch;
+
     // End of variables declaration//GEN-END:variables
     public static synchronized DashboardView getInstance() {
         if (instance == null) {

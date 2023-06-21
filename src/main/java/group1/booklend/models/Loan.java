@@ -26,10 +26,10 @@ public class Loan {
     @DatabaseField(generatedId = true)
     private int id;
 
-    @DatabaseField(foreign = true, columnName = "borrower_id")
+    @DatabaseField(foreign = true, columnName = "borrower_id", foreignAutoRefresh = true)
     private Borrower borrower;
 
-    @DatabaseField(foreign = true, columnName = "book_id")
+    @DatabaseField(foreign = true, columnName = "book_id", foreignAutoRefresh = true)
     private Book book;
 
     @DatabaseField
@@ -101,6 +101,16 @@ public class Loan {
     public static List<Loan> all() throws SQLException {
         Dao<Loan, Integer> loanDao = DaoManager.createDao(DatabaseHelper.getConnectionSource(), Loan.class);
         return loanDao.queryForAll();
+    }
+
+    public static List<Loan> byBook(Book book) {
+        try {
+            Dao<Loan, Integer> loanDao = DaoManager.createDao(DatabaseHelper.getConnectionSource(), Loan.class);
+            return loanDao.queryBuilder().where().eq("book_id", book.getId()).query();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 
 }
