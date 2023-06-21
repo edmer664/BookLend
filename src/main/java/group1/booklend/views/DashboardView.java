@@ -61,7 +61,7 @@ public class DashboardView extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         pnlLeft = new javax.swing.JPanel();
@@ -81,6 +81,7 @@ public class DashboardView extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("BookLend - Dashboard");
         setPreferredSize(new java.awt.Dimension(650, 450));
+        setResizable(false);
         setSize(new java.awt.Dimension(600, 500));
         getContentPane().setLayout(null);
 
@@ -134,21 +135,22 @@ public class DashboardView extends javax.swing.JFrame {
         btnSelect.setBounds(240, 10, 72, 23);
 
         tblBooks.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null }
-                },
-                new String[] {
-                        "id", "Title", "Author", "Status"
-                }) {
-            boolean[] canEdit = new boolean[] {
-                    false, false, false, false
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "id", "Title", "Author", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit[columnIndex];
+                return canEdit [columnIndex];
             }
         });
         tblBooks.getTableHeader().setReorderingAllowed(false);
@@ -240,7 +242,6 @@ public class DashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel pnlLeft;
     private javax.swing.JTable tblBooks;
     private javax.swing.JTextField txtSearch;
-
     // End of variables declaration//GEN-END:variables
     public static synchronized DashboardView getInstance() {
         if (instance == null) {
