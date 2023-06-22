@@ -30,68 +30,68 @@ public class RegisterNewBorrowerView extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+        // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+        private void initComponents() {
 
-        lblHeading = new javax.swing.JLabel();
-        txtName = new javax.swing.JTextField();
-        lblName = new javax.swing.JLabel();
-        lblEmail = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
-        txtContact = new javax.swing.JTextField();
-        lblContact = new javax.swing.JLabel();
-        lblAddress = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
-        btnRegister = new javax.swing.JButton();
+                lblHeading = new javax.swing.JLabel();
+                txtName = new javax.swing.JTextField();
+                lblName = new javax.swing.JLabel();
+                lblEmail = new javax.swing.JLabel();
+                txtEmail = new javax.swing.JTextField();
+                txtContact = new javax.swing.JTextField();
+                lblContact = new javax.swing.JLabel();
+                lblAddress = new javax.swing.JLabel();
+                txtAddress = new javax.swing.JTextField();
+                btnRegister = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(425, 450));
-        setResizable(false);
-        setSize(new java.awt.Dimension(425, 450));
-        getContentPane().setLayout(null);
+                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+                setPreferredSize(new java.awt.Dimension(425, 450));
+                setResizable(false);
+                setSize(new java.awt.Dimension(425, 450));
+                getContentPane().setLayout(null);
 
-        lblHeading.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblHeading.setText("Register a New Borrower");
-        getContentPane().add(lblHeading);
-        lblHeading.setBounds(6, 0, 170, 30);
-        getContentPane().add(txtName);
-        txtName.setBounds(10, 60, 380, 30);
+                lblHeading.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+                lblHeading.setText("Register a New Borrower");
+                getContentPane().add(lblHeading);
+                lblHeading.setBounds(6, 0, 170, 30);
+                getContentPane().add(txtName);
+                txtName.setBounds(10, 60, 380, 30);
 
-        lblName.setText("Name");
-        getContentPane().add(lblName);
-        lblName.setBounds(10, 40, 31, 16);
+                lblName.setText("Name");
+                getContentPane().add(lblName);
+                lblName.setBounds(10, 40, 32, 16);
 
-        lblEmail.setText("Email Address");
-        getContentPane().add(lblEmail);
-        lblEmail.setBounds(10, 100, 100, 20);
-        getContentPane().add(txtEmail);
-        txtEmail.setBounds(10, 120, 380, 30);
-        getContentPane().add(txtContact);
-        txtContact.setBounds(10, 180, 380, 30);
+                lblEmail.setText("Email Address");
+                getContentPane().add(lblEmail);
+                lblEmail.setBounds(10, 100, 100, 20);
+                getContentPane().add(txtEmail);
+                txtEmail.setBounds(10, 120, 380, 30);
+                getContentPane().add(txtContact);
+                txtContact.setBounds(10, 180, 380, 30);
 
-        lblContact.setText("Contact No.");
-        getContentPane().add(lblContact);
-        lblContact.setBounds(10, 160, 100, 16);
+                lblContact.setText("Contact No.");
+                getContentPane().add(lblContact);
+                lblContact.setBounds(10, 160, 100, 16);
 
-        lblAddress.setText("Address");
-        getContentPane().add(lblAddress);
-        lblAddress.setBounds(10, 220, 60, 16);
-        getContentPane().add(txtAddress);
-        txtAddress.setBounds(10, 240, 380, 30);
+                lblAddress.setText("Address");
+                getContentPane().add(lblAddress);
+                lblAddress.setBounds(10, 220, 60, 16);
+                getContentPane().add(txtAddress);
+                txtAddress.setBounds(10, 240, 380, 30);
 
-        btnRegister.setBackground(new java.awt.Color(51, 0, 51));
-        btnRegister.setForeground(new java.awt.Color(255, 255, 255));
-        btnRegister.setText("Register");
-        btnRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegisterActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnRegister);
-        btnRegister.setBounds(310, 360, 80, 30);
+                btnRegister.setBackground(new java.awt.Color(51, 0, 51));
+                btnRegister.setForeground(new java.awt.Color(255, 255, 255));
+                btnRegister.setText("Register");
+                btnRegister.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnRegisterActionPerformed(evt);
+                        }
+                });
+                getContentPane().add(btnRegister);
+                btnRegister.setBounds(310, 360, 80, 30);
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+                pack();
+        }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnRegisterActionPerformed
 
@@ -118,6 +118,13 @@ public class RegisterNewBorrowerView extends javax.swing.JFrame {
         txtContact.setText("");
         txtAddress.setText("");
 
+	BorrowView borrowView = BorrowView.getInstance();
+	try {
+		borrowView.loadBorrowers();
+	} catch (SQLException e) {
+		System.out.println(e.getMessage());
+	}
+		
         this.dispose();
 
     }// GEN-LAST:event_btnRegisterActionPerformed
@@ -165,18 +172,18 @@ public class RegisterNewBorrowerView extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnRegister;
-    private javax.swing.JLabel lblAddress;
-    private javax.swing.JLabel lblContact;
-    private javax.swing.JLabel lblEmail;
-    private javax.swing.JLabel lblHeading;
-    private javax.swing.JLabel lblName;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtContact;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtName;
-    // End of variables declaration//GEN-END:variables
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        private javax.swing.JButton btnRegister;
+        private javax.swing.JLabel lblAddress;
+        private javax.swing.JLabel lblContact;
+        private javax.swing.JLabel lblEmail;
+        private javax.swing.JLabel lblHeading;
+        private javax.swing.JLabel lblName;
+        private javax.swing.JTextField txtAddress;
+        private javax.swing.JTextField txtContact;
+        private javax.swing.JTextField txtEmail;
+        private javax.swing.JTextField txtName;
+        // End of variables declaration//GEN-END:variables
 
     public static synchronized RegisterNewBorrowerView getInstance() {
         if (instance == null) {

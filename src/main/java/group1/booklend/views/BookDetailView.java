@@ -49,105 +49,111 @@ public class BookDetailView extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+        // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+        private void initComponents() {
 
-        txtTitle = new javax.swing.JTextField();
-        txtAuthor = new javax.swing.JTextField();
-        lblAuthor = new javax.swing.JLabel();
-        txtISBN = new javax.swing.JTextField();
-        lblISBN = new javax.swing.JLabel();
-        btnUpdate = new javax.swing.JButton();
-        btnBorrow = new javax.swing.JButton();
-        btnReturn = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblHistory = new javax.swing.JTable();
+                txtTitle = new javax.swing.JTextField();
+                txtAuthor = new javax.swing.JTextField();
+                txtISBN = new javax.swing.JTextField();
+                lblTitle = new javax.swing.JLabel();
+                lblAuthor = new javax.swing.JLabel();
+                lblISBN = new javax.swing.JLabel();
+                btnUpdate = new javax.swing.JButton();
+                btnBorrow = new javax.swing.JButton();
+                btnReturn = new javax.swing.JButton();
+                jScrollPane1 = new javax.swing.JScrollPane();
+                tblHistory = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Book Details");
-        setBackground(new java.awt.Color(255, 255, 255));
-        setPreferredSize(new java.awt.Dimension(520, 420));
-        setResizable(false);
-        setSize(new java.awt.Dimension(520, 420));
-        getContentPane().setLayout(null);
+                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+                setTitle("Book Details");
+                setBackground(new java.awt.Color(255, 255, 255));
+                setPreferredSize(new java.awt.Dimension(520, 420));
+                setResizable(false);
+                setSize(new java.awt.Dimension(520, 420));
+                getContentPane().setLayout(null);
 
-        txtTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        txtTitle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTitleActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtTitle);
-        txtTitle.setBounds(10, 10, 480, 30);
+                txtTitle.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+                txtTitle.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtTitleActionPerformed(evt);
+                        }
+                });
+                getContentPane().add(txtTitle);
+                txtTitle.setBounds(10, 30, 480, 30);
 
-        txtAuthor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtAuthorActionPerformed(evt);
-            }
-        });
-        getContentPane().add(txtAuthor);
-        txtAuthor.setBounds(10, 70, 210, 22);
+                txtAuthor.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                txtAuthorActionPerformed(evt);
+                        }
+                });
+                getContentPane().add(txtAuthor);
+                txtAuthor.setBounds(10, 90, 210, 22);
+                getContentPane().add(txtISBN);
+                txtISBN.setBounds(270, 90, 220, 22);
 
-        lblAuthor.setText("Author");
-        getContentPane().add(lblAuthor);
-        lblAuthor.setBounds(10, 50, 60, 16);
-        getContentPane().add(txtISBN);
-        txtISBN.setBounds(270, 70, 220, 22);
+                lblTitle.setText("Title");
+                getContentPane().add(lblTitle);
+                lblTitle.setBounds(10, 10, 60, 16);
 
-        lblISBN.setText("ISBN");
-        getContentPane().add(lblISBN);
-        lblISBN.setBounds(270, 50, 25, 16);
+                lblAuthor.setText("Author");
+                getContentPane().add(lblAuthor);
+                lblAuthor.setBounds(10, 70, 60, 16);
 
-        btnUpdate.setBackground(new java.awt.Color(51, 0, 51));
-        btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
-        btnUpdate.setText("Update");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnUpdate);
-        btnUpdate.setBounds(410, 110, 75, 23);
+                lblISBN.setText("ISBN");
+                getContentPane().add(lblISBN);
+                lblISBN.setBounds(270, 70, 25, 16);
 
-        btnBorrow.setBackground(new java.awt.Color(0, 51, 0));
-        btnBorrow.setForeground(new java.awt.Color(255, 255, 255));
-        btnBorrow.setText("Borrow");
-        btnBorrow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBorrowActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnBorrow);
-        btnBorrow.setBounds(250, 110, 72, 23);
+                btnUpdate.setBackground(new java.awt.Color(51, 0, 51));
+                btnUpdate.setForeground(new java.awt.Color(255, 255, 255));
+                btnUpdate.setText("Update");
+                btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnUpdateActionPerformed(evt);
+                        }
+                });
+                getContentPane().add(btnUpdate);
+                btnUpdate.setBounds(410, 120, 75, 23);
 
-        btnReturn.setBackground(new java.awt.Color(51, 0, 0));
-        btnReturn.setForeground(new java.awt.Color(255, 255, 255));
-        btnReturn.setText("Return");
-        btnReturn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnReturnActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnReturn);
-        btnReturn.setBounds(330, 110, 72, 23);
+                btnBorrow.setBackground(new java.awt.Color(0, 51, 0));
+                btnBorrow.setForeground(new java.awt.Color(255, 255, 255));
+                btnBorrow.setText("Borrow");
+                btnBorrow.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnBorrowActionPerformed(evt);
+                        }
+                });
+                getContentPane().add(btnBorrow);
+                btnBorrow.setBounds(250, 120, 72, 23);
 
-        tblHistory.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null }
-                },
-                new String[] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }));
-        jScrollPane1.setViewportView(tblHistory);
+                btnReturn.setBackground(new java.awt.Color(51, 0, 0));
+                btnReturn.setForeground(new java.awt.Color(255, 255, 255));
+                btnReturn.setText("Return");
+                btnReturn.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnReturnActionPerformed(evt);
+                        }
+                });
+                getContentPane().add(btnReturn);
+                btnReturn.setBounds(330, 120, 72, 23);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 150, 470, 240);
+                tblHistory.setModel(new javax.swing.table.DefaultTableModel(
+                        new Object [][] {
+                                {null, null, null, null},
+                                {null, null, null, null},
+                                {null, null, null, null},
+                                {null, null, null, null}
+                        },
+                        new String [] {
+                                "Title 1", "Title 2", "Title 3", "Title 4"
+                        }
+                ));
+                jScrollPane1.setViewportView(tblHistory);
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+                getContentPane().add(jScrollPane1);
+                jScrollPane1.setBounds(10, 150, 470, 240);
+
+                pack();
+        }// </editor-fold>//GEN-END:initComponents
 
     private void btnReturnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnReturnActionPerformed
         book.returnBook();
@@ -270,16 +276,17 @@ public class BookDetailView extends javax.swing.JFrame {
         }
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBorrow;
-    private javax.swing.JButton btnReturn;
-    private javax.swing.JButton btnUpdate;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblAuthor;
-    private javax.swing.JLabel lblISBN;
-    private javax.swing.JTable tblHistory;
-    private javax.swing.JTextField txtAuthor;
-    private javax.swing.JTextField txtISBN;
-    private javax.swing.JTextField txtTitle;
-    // End of variables declaration//GEN-END:variables
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        private javax.swing.JButton btnBorrow;
+        private javax.swing.JButton btnReturn;
+        private javax.swing.JButton btnUpdate;
+        private javax.swing.JScrollPane jScrollPane1;
+        private javax.swing.JLabel lblAuthor;
+        private javax.swing.JLabel lblISBN;
+        private javax.swing.JLabel lblTitle;
+        private javax.swing.JTable tblHistory;
+        private javax.swing.JTextField txtAuthor;
+        private javax.swing.JTextField txtISBN;
+        private javax.swing.JTextField txtTitle;
+        // End of variables declaration//GEN-END:variables
 }
