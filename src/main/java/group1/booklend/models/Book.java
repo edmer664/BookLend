@@ -126,6 +126,11 @@ public class Book {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+
+    public static List<Book> search(String searchTerm) throws SQLException {
+        Dao<Book, Integer> bookDao = DaoManager.createDao(DatabaseHelper.getConnectionSource(), Book.class);
+        searchTerm = "%" + searchTerm + "%";
+        return bookDao.queryBuilder().where().like("title", searchTerm).query();
     }
 
 }
