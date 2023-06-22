@@ -39,54 +39,48 @@ public class BorrowView extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+        // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+        private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listBorrowers = new javax.swing.JList<>();
-        btnConfirm = new javax.swing.JButton();
-        lblHeading = new javax.swing.JLabel();
+                jScrollPane1 = new javax.swing.JScrollPane();
+                listBorrowers = new javax.swing.JList<>();
+                btnConfirm = new javax.swing.JButton();
+                lblHeading = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(420, 340));
-        setResizable(false);
-        setSize(new java.awt.Dimension(420, 340));
-        getContentPane().setLayout(null);
+                setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+                setPreferredSize(new java.awt.Dimension(420, 340));
+                setResizable(false);
+                setSize(new java.awt.Dimension(420, 340));
+                getContentPane().setLayout(null);
 
-        listBorrowers.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+                listBorrowers.setModel(new javax.swing.AbstractListModel<String>() {
+                        String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+                        public int getSize() { return strings.length; }
+                        public String getElementAt(int i) { return strings[i]; }
+                });
+                jScrollPane1.setViewportView(listBorrowers);
 
-            public int getSize() {
-                return strings.length;
-            }
+                getContentPane().add(jScrollPane1);
+                jScrollPane1.setBounds(10, 60, 370, 170);
 
-            public String getElementAt(int i) {
-                return strings[i];
-            }
-        });
-        jScrollPane1.setViewportView(listBorrowers);
+                btnConfirm.setBackground(new java.awt.Color(51, 0, 51));
+                btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
+                btnConfirm.setText("Confirm");
+                btnConfirm.addActionListener(new java.awt.event.ActionListener() {
+                        public void actionPerformed(java.awt.event.ActionEvent evt) {
+                                btnConfirmActionPerformed(evt);
+                        }
+                });
+                getContentPane().add(btnConfirm);
+                btnConfirm.setBounds(304, 263, 80, 30);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(10, 60, 370, 170);
+                lblHeading.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+                lblHeading.setText("Select Borrower");
+                getContentPane().add(lblHeading);
+                lblHeading.setBounds(130, 10, 120, 30);
 
-        btnConfirm.setBackground(new java.awt.Color(51, 0, 51));
-        btnConfirm.setForeground(new java.awt.Color(255, 255, 255));
-        btnConfirm.setText("Confirm");
-        btnConfirm.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnConfirmActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btnConfirm);
-        btnConfirm.setBounds(304, 263, 80, 30);
-
-        lblHeading.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        lblHeading.setText("Select Borrower");
-        getContentPane().add(lblHeading);
-        lblHeading.setBounds(130, 10, 120, 30);
-
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+                pack();
+        }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnConfirmActionPerformed
 
@@ -146,12 +140,12 @@ public class BorrowView extends javax.swing.JFrame {
         });
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnConfirm;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lblHeading;
-    private javax.swing.JList<String> listBorrowers;
-    // End of variables declaration//GEN-END:variables
+        // Variables declaration - do not modify//GEN-BEGIN:variables
+        private javax.swing.JButton btnConfirm;
+        private javax.swing.JScrollPane jScrollPane1;
+        private javax.swing.JLabel lblHeading;
+        private javax.swing.JList<String> listBorrowers;
+        // End of variables declaration//GEN-END:variables
 
     public void setBook(Book book) {
         this.book = book;
