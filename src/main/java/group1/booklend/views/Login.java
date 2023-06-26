@@ -4,7 +4,10 @@
  */
 package group1.booklend.views;
 
+import group1.booklend.BookLend;
 import group1.booklend.models.User;
+import group1.booklend.utils.DarkModeUtil;
+import javax.swing.SwingUtilities;
 
 /**
  *
@@ -27,11 +30,12 @@ public class Login extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         leftPanel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        btnMode = new javax.swing.JButton();
         rightPanel = new javax.swing.JPanel();
         lblLogin = new javax.swing.JLabel();
         lblPassword = new javax.swing.JLabel();
@@ -55,6 +59,17 @@ public class Login extends javax.swing.JFrame {
         jLabel1.setText("BookLend");
         leftPanel.add(jLabel1);
         jLabel1.setBounds(50, 170, 190, 60);
+
+        btnMode.setBackground(new java.awt.Color(102, 0, 102));
+        btnMode.setForeground(new java.awt.Color(255, 255, 255));
+        btnMode.setText("Toggle Theme");
+        btnMode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModeActionPerformed(evt);
+            }
+        });
+        leftPanel.add(btnMode);
+        btnMode.setBounds(10, 400, 110, 23);
 
         getContentPane().add(leftPanel);
 
@@ -98,6 +113,17 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnModeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModeActionPerformed
+        DarkModeUtil darkModeUtil = DarkModeUtil.getInstance();
+        darkModeUtil.setIsDark(!darkModeUtil.getIsDark());
+
+        SwingUtilities.invokeLater(() -> {
+            BookLend.getInstance().initializeLookAndFeel();
+            BookLend.getInstance().showLogin();
+            System.out.println(darkModeUtil.getIsDark());
+        });
+    }//GEN-LAST:event_btnModeActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
@@ -161,6 +187,7 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnMode;
     private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblEmail;
